@@ -31,7 +31,7 @@ def create_fall_history(request):
 
 @api_view(['GET'])
 def get_fall_history_by_user(request):
-    user_id = request.GET.get('id')
+    user_id = request.GET.get('user_id')
     fall_history_list = FallHistory.objects.filter(user_id=user_id)
     return HttpResponse(serializers.serialize('json', fall_history_list), status=200, content_type="application/json")
 
@@ -46,7 +46,7 @@ def fall_history_view(request):
 
 @api_view(['POST'])
 def user_view(request):
-    user_id = request.GET.get('id')
+    user_id = request.GET.get('user_id')
     pw = request.GET.get('pw')
     user, created = User.objects.get_or_create(id=user_id, pw=pw)
     return Response(UserSerializer(user).data, status=201)
