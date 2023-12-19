@@ -2,13 +2,12 @@
 
 FallMon 프로젝트의 Server 입니다. 
 
-기본 API 작성중입니다.
 
 ### Secrets 관리
 SecretKey는 는 최상위 디렉토리의 secretes.json에 저장합니다.
 ```json
 {
-   "SECRET_KEY" : ""
+   "SECRET_KEY" : "MY DJANGO SECRET KEY"
 } 
 ```
 
