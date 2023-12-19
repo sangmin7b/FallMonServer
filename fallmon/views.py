@@ -33,8 +33,8 @@ def create_fall_history(request):
 def get_fall_history_by_user(request):
     user_id = request.GET.get('user_id')
     fall_history_list = FallHistory.objects.filter(user_id=user_id)
-    return HttpResponse(serializers.serialize('json', fall_history_list), status=200, content_type="application/json")
-
+    serialized_data = FallHistorySerializer(fall_history_list, many=True).data
+    return Response(serialized_data, status=200)
 
 @api_view(['GET', 'POST'])
 def fall_history_view(request):
