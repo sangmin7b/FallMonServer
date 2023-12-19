@@ -3,7 +3,7 @@ from .models import User, FallType, FallHistory
 
 
 class UserSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
+    id = serializers.CharField()
 
 
 class FallTypeSerializer(serializers.Serializer):
