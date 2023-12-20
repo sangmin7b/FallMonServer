@@ -1,0 +1,3 @@
+{
+  "FallType": ["drop attack", "non fall", "slipping", "stand push", "sunken floor", "fall"]
+}
