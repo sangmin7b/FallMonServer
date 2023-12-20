@@ -18,7 +18,7 @@ class User(models.Model):
 
 class FallType(models.Model):
     id = models.IntegerField(primary_key=True, auto_created=True)
-    name = models.CharField(max_length=256, default="")
+    name = models.CharField(max_length=256, default="", unique=True)
 
     def __str__(self):
         return f"[{self.id} {self.name}]"
