@@ -45,7 +45,27 @@ python manage.py runserver
 ### Run server (PROD)
 
 #### requirement: database 
-database (e.g. mysql) is required in production environment
+database (ex. mysql) 
+
+reverse proxy (ex. [caddy](https://caddyserver.com/docs/quick-starts))
+
+example Caddyfile: located in /etc/caddy/Caddyfile
+
+```txt 
+:8080 {
+	# Enable the static file server.
+        root * /home/ubuntu/FallMonserver/.static_roots
+        file_server
+
+	# Set up a reverse proxy:
+	reverse_proxy localhost:8000
+}
+```
+
+```bash
+caddy run
+```
+
 
 #### checkout to deploy branch
 
@@ -57,6 +77,10 @@ install python packages and run migrations
 ```bash
 pip install -r requirements.txt
 python manage.py migrate
+```
+collect static files 
+```bash
+python manage.py collectstatic
 ```
 
 #### runserver
